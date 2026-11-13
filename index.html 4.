@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Damian Hernandez | Creative Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --background: #f6f5f1;
+  --text: #20201e;
+  --muted: #77756f;
+  --accent: #b7a58b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 27px 6%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(246,245,241,.94);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+  opacity: .5;
+}
+
+section {
+  padding: 100px 8%;
+}
+
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+.hero {
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 10%;
+}
+
+.hero h1 {
+  font-size: clamp(55px, 10vw, 130px);
+  line-height: .95;
+  letter-spacing: -7px;
+  font-weight: 500;
+  margin: 35px 0;
+}
+
+.hero h1 em {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+.hero-description {
+  max-width: 460px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-left: 5px;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 75px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.projects-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 55px;
+}
+
+.projects-heading h2,
+.community h2,
+.mock h2 {
+  font-size: clamp(38px, 6vw, 75px);
+  font-weight: 500;
+  letter-spacing: -3px;
+}
+
+.project {
+  margin-bottom: 100px;
+}
+
+.project-image {
+  width: 100%;
+  height: 490px;
+  background: #e4e0d8;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s ease;
+}
+
+.project:hover .project-image img {
+  transform: scale(1.035);
+}
+
+.project-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 24px;
+}
+
+.project-info h3 {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.project-info p {
+  color: var(--muted);
+  max-width: 510px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.view-work {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  align-self: start;
+  border-bottom: 1px solid var(--text);
+  padding-bottom: 7px;
+  white-space: nowrap;
+}
+
+.community {
+  background: #e9e6df;
+  padding: 130px 10%;
+}
+
+.community-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.community h2 {
+  margin: 25px 0;
+  max-width: 520px;
+}
+
+.community p {
+  color: #66635d;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.community-image {
+  height: 450px;
+  background: #d3cec4;
+  overflow: hidden;
+}
+
+.community-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 65px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  background: #e4e0d8;
+}
+
+.mock {
+  padding-top: 130px;
+  padding-bottom: 140px;
+}
+
+.mock p {
+  max-width: 650px;
+  color: var(--muted);
+  line-height: 1.9;
+  margin-top: 25px;
+}
+
+.mock-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 55px;
+}
+
+.mock-gallery img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  background: #e4e0d8;
+}
+
+footer {
+  background: #22221f;
+  color: #f6f5f1;
+  padding: 100px 8% 35px;
+}
+
+footer h2 {
+  font-size: clamp(45px, 8vw, 95px);
+  font-weight: 500;
+  letter-spacing: -5px;
+  margin: 25px 0;
+}
+
+footer a {
+  border-bottom: 1px solid #aaa;
+  padding-bottom: 5px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  padding-top: 25px;
+  border-top: 1px solid #555;
+  font-size: 11px;
+  color: #aaa;
+}
+
+@media(max-width: 700px) {
+  nav {
+    padding: 22px 5%;
+  }
+
+  .nav-links {
+    gap: 12px;
+    font-size: 9px;
+  }
+
+  .hero {
+    min-height: 580px;
+    padding: 90px 7%;
+  }
+
+  .hero h1 {
+    letter-spacing: -3px;
+  }
+
+  section {
+    padding: 75px 7%;
+  }
+
+  .project-image {
+    height: 300px;
+  }
+
+  .project-info {
+    flex-direction: column;
+  }
+
+  .community-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .community-image {
+    height: 330px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery img {
+    height: 200px;
+  }
+
+  .mock-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .mock-gallery img {
+    height: 330px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a class="logo" href="#home">DH.</a>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#mock">Concepts</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <span class="eyebrow">Creative Portfolio · New York</span>
+
+  <h1>
+    Meet<br>
+    Damian <em>Hernandez.</em>
+  </h1>
+
+  <p class="hero-description">
+    A Marketing and Brand Strategist who builds community
+    engagement for the Entertainment Industry.
+  </p>
+
+  <div class="hero-bottom">
+    <span>Creative Direction / Marketing / Culture</span>
+    <a href="#work">Explore selected work ↓</a>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+<section id="work">
+
+  <div class="projects-heading">
+    <div>
+      <span class="eyebrow">01 / Selected Projects</span>
+      <h2>Selected Work.</h2>
+    </div>
+    <span class="eyebrow">2026 — 2027</span>
+  </div>
+
+  <article class="project">
+    <div class="project-image">
+      <!-- Replace with your Cordell project image -->
+      <img src="images/cordell.jpg" alt="Cordell Matthias creative direction project">
+    </div>
+    <div class="project-info">
+      <div>
+        <h3>Cordell Matthias</h3>
+        <p>
+          Cordell Matthias wanted to create an identity that was
+          true to both his music and himself, showcased through
+          clothing and social presence.
+        </p>
+      </div>
+      <a class="view-work" href="cordell.html">View Work ↗</a>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="project-image">
+      <!-- Replace with your Nike campaign image -->
+      <img src="images/nike-tate.jpg" alt="Nike and Tate McRae campaign">
+    </div>
+    <div class="project-info">
+      <div>
+        <h3>NIKE X TATE MCRAE</h3>
+        <p>
+          Tate's dance background backs Nike's claim that
+          "dancers are athletes," connecting with both her
+          fanbase and the dance community.
+        </p>
+      </div>
+      <a class="view-work" href="nike.html">View Work ↗</a>
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="project-image">
+      <!-- Replace with your Sabrina campaign image -->
+      <img src="images/sabrina.jpg" alt="Agent Provocateur and Sabrina Carpenter concept">
+    </div>
+    <div class="project-info">
+      <div>
+        <h3>AGENT PROVOCATEUR X SABRINA CARPENTER</h3>
+        <p>
+          Sabrina's cheeky aesthetic pairs with Agent Provocateur.
+          The concept promotes her musical era while positioning
+          the brand in a contemporary cultural conversation.
+        </p>
+      </div>
+      <a class="view-work" href="sabrina.html">View Work ↗</a>
+    </div>
+  </article>
+
+</section>
+
+<!-- ABOUT / COMMUNITY -->
+<section class="community" id="about">
+  <div class="community-content">
+    <div>
+      <span class="eyebrow">02 / About Damian</span>
+      <h2>Community both online and in person.</h2>
+      <p>
+        Damian has grown to love creating spaces both online and
+        in person that foster exciting engagement for all parties
+        involved.
+        <br><br>
+        He brings that mindset to social media and video, editing
+        short-form content, shaping visual identities, and building
+        communities for artists, brands, and student organizations.
+        He cares about the numbers, but cares more about whether
+        people feel like they're part of something.
+      </p>
+    </div>
+
+    <div class="community-image">
+      <!-- Replace with your personal photography -->
+      <img src="images/community.jpg" alt="Community and creative work">
+    </div>
+  </div>
+
+  <div class="gallery">
+    <img src="images/gallery-1.jpg" alt="Creative work">
+    <img src="images/gallery-2.jpg" alt="Creative work">
+    <img src="images/gallery-3.jpg" alt="Creative work">
+  </div>
+</section>
+
+<!-- MOCK PROJECTS -->
+<section class="mock" id="mock">
+  <span class="eyebrow">03 / Creative Exploration</span>
+  <h2>Mock Projects.</h2>
+
+  <p>
+    With big ideas, Damian has been able to create mock campaigns
+    connecting both the Music Industry to the Fashion Industry.
+    <br><br>
+    Within these campaigns he has looked at trend spotting and
+    positive and negative conversations on social media.
+    Through this, he felt it was most important to create campaigns
+    that made sense for both parties, striving for authenticity.
+  </p>
+
+  <div class="mock-gallery">
+    <img src="images/mock-1.jpg" alt="Fashion and music campaign concept">
+    <img src="images/mock-2.jpg" alt="Creative campaign concept">
+    <img src="images/mock-3.jpg" alt="Brand identity concept">
+    <img src="images/mock-4.jpg" alt="Social media campaign concept">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact">
+  <span class="eyebrow">04 / Get In Touch</span>
+  <h2>Let's create<br><em>something meaningful.</em></h2>
+
+  <p style="margin: 30px 0 45px; color: #bbb;">
+    Interested in working together? Let's connect.
+  </p>
+
+  <a href="mailto:damiansh1106@gmail.com">
+    damiansh1106@gmail.com ↗
+  </a>
+
+  <div class="footer-bottom">
+    <span>© 2026 Damian Hernandez</span>
+    <span>New York, NY</span>
+    <span>Creative Direction · Marketing · Culture</span>
+  </div>
+</footer>
+
+</body>
+</html>
